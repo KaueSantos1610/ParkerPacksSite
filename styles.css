@@ -1,0 +1,457 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    /* Spider-Man and Action Colors */
+    --color-primary: #e30514; /* Vibrant Red */
+    --color-secondary: #000080; /* Dark Blue/Cobalt */
+    --color-accent: #ffeb3b; /* Yellow/Gold for accent */
+    --color-text: #222;
+    --color-light: #f4f4f4;
+    --color-discord: #5865F2; /* Official Discord Color */
+}
+
+/* General Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    overflow-x: hidden; /* Prevents horizontal scrollbars due to animations */
+}
+
+/* SPLASH SCREEN INTRO (BOOM!) */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #000000 100%); /* Fundo escuro dramático */
+    z-index: 9999; /* Garante que fique acima de tudo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.8s ease-out; /* Tempo do FADE-OUT */
+}
+
+.splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Desabilita interações após o fade */
+}
+
+.splash-content {
+    text-align: center;
+    animation: zoomIn 1s ease-out; /* Animação de entrada */
+}
+
+.splash-text {
+    font-size: 8rem; /* Gigante */
+    color: var(--color-light);
+    /* Efeito de quadrinhos/energia máxima */
+    text-shadow: 10px 10px 0 var(--color-primary), 15px 15px 0 var(--color-accent), 20px 20px 0 rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
+.splash-subtitle {
+    font-size: 2rem;
+    color: var(--color-light);
+    text-shadow: 2px 2px 5px var(--color-primary);
+}
+
+/* Animação para a Intro */
+@keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pulseGlow {
+    from { text-shadow: 10px 10px 0 var(--color-primary), 15px 15px 0 var(--color-accent); }
+    to { text-shadow: 10px 10px 10px var(--color-primary), 15px 15px 15px var(--color-accent); }
+}
+
+/* LOADER (Opcional, mas dá um toque profissional) */
+.splash-loader {
+    border: 4px solid var(--color-light);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* FIM DA INTRO */
+
+
+/* Títulos e Logo (Bangers - Comic Font) */
+h1, h2, h3 {
+    font-family: 'Bangers', cursive;
+    color: var(--color-primary);
+    text-shadow: 3px 3px 0 var(--color-secondary), 5px 5px 0 rgba(0,0,0,0.1); /* POP! Effect */
+    letter-spacing: 2px;
+}
+
+/* O resto do CSS original */
+
+h1.logo-text {
+    font-size: 3rem;
+    color: var(--color-light);
+    text-shadow: 4px 4px 0 var(--color-primary), 6px 6px 0 #000;
+    transition: transform 0.3s;
+}
+
+h1.logo-text:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Header e Navegação */
+.main-header {
+    background: var(--color-secondary);
+    color: var(--color-light);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.main-header nav a {
+    color: var(--color-light);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-header nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Animated Underline Effect */
+.main-header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--color-primary);
+    transition: width 0.4s ease;
+}
+
+.main-header nav a:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--color-primary);
+}
+
+/* CTA Button (Call to Action) */
+.cta-button {
+    background-color: var(--color-primary) !important;
+    color: var(--color-light) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 2px solid var(--color-accent);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ff3344 !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(227, 5, 20, 0.5);
+}
+
+/* Hero Section (Main Banner) */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #1a1a1a 100%);
+    color: var(--color-light);
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+}
+
+/* MODIFIED Hero Title */
+.hero-content h2 {
+    font-size: 5rem; 
+    margin-bottom: 20px;
+    color: var(--color-accent); 
+    text-shadow: 8px 8px 0 var(--color-primary), 10px 10px 0 var(--color-secondary); 
+    line-height: 1.1;
+    animation: bounceIn 1.2s ease-out; 
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.hero-cta {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 235, 59, 0.6);
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.hero-cta:hover {
+    background-color: #ffdd00;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 235, 59, 0.8);
+}
+
+/* Web Effect Animation */
+@keyframes webFlow {
+    0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(100vw, -100vh) scale(1.5); opacity: 0; }
+}
+
+.web-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 5%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: webFlow 15s infinite linear;
+}
+/* Duplicate for a fuller effect */
+.web-effect::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(227, 5, 20, 0.4) 10%, transparent 60%);
+    border-radius: 50%;
+    top: 100px;
+    left: -50px;
+    animation: webFlow 18s infinite reverse linear;
+}
+
+
+/* Model Gallery */
+.model-gallery {
+    padding: 50px 5%;
+    text-align: center;
+    background-color: var(--color-light);
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.model-card {
+    background: #fff;
+    border: 4px solid var(--color-secondary);
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 8px 8px 0px var(--color-primary), 12px 12px 0px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+    overflow: hidden;
+    position: relative;
+}
+
+.model-card:hover {
+    transform: translateY(-10px) rotate(1deg); /* Levitation and tilt */
+    box-shadow: 12px 12px 0px var(--color-accent), 16px 16px 0px rgba(0,0,0,0.2);
+}
+
+.model-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.6s ease-out;
+}
+
+.model-card:hover img {
+    transform: scale(1.1) rotateY(10deg); /* Subtle 3D effect on hover */
+}
+
+/* Theme variations */
+.spiderman-theme { border-color: var(--color-primary); }
+.dc-theme { border-color: #003366; }
+.marvel-theme { border-color: #cc0000; }
+
+.details-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s, letter-spacing 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #001a4d;
+    letter-spacing: 1px;
+}
+
+/* Focus Section (Spider-Man) */
+.focus-section {
+    background: url('images/spiderweb_bg.jpg') no-repeat center center; /* Replace with your background image */
+    background-size: cover;
+    padding: 60px 5%;
+    text-align: center;
+    color: var(--color-light);
+    text-shadow: 2px 2px 5px #000;
+}
+
+.focus-title {
+    color: var(--color-accent);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.spider-callout {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.large-cta {
+    font-size: 1.5rem;
+    padding: 15px 35px;
+    margin-top: 15px;
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+/* Neon Animation for Spider-Man CTA */
+@keyframes neonGlow {
+    from {
+        box-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary), 0 0 20px var(--color-accent);
+    }
+    to {
+        box-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-accent);
+    }
+}
+
+/* Contact Section - MODIFIED for Discord CTA */
+.contact-section {
+    padding: 50px 5%;
+    background-color: #eee;
+    text-align: center;
+}
+
+.contact-subtext {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.contact-note {
+    font-style: italic;
+    margin-top: 15px;
+    color: #666;
+}
+
+/* Style for Discord CTA Button */
+.discord-cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-discord);
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.discord-cta-button:hover {
+    background-color: #7289da;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(88, 101, 242, 0.6);
+}
+
+.discord-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+/* Footer */
+footer {
+    background: var(--color-secondary);
+    color: var(--color-light);
+    padding: 20px 5%;
+    text-align: center;
+    border-top: 5px solid var(--color-primary);
+}
+
+.social-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-light);
+}
+
+/* Global Keyframe Animations */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(-100px); }
+    60% { opacity: 1; transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 235, 59, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 235, 59, 0); }
+}

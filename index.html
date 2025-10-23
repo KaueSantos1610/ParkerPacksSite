@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parker Pack's - Modelos e Skins 3D Premium para Minecraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <h1 class="splash-text">PARKER PACK'S</h1>
+            <h2 class="splash-subtitle">PREPARE-SE PARA A PRÓXIMA DIMENSÃO.</h2>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+    <header class="main-header">
+        <h1 class="logo-text">PARKER PACK'S</h1>
+        <nav>
+            <a href="#featured">Modelos em Destaque</a>
+            <a href="#spiderman">Aranhaverso</a>
+            <a href="#about">Sobre</a>
+            <a href="https://discord.gg/72UQDsRFeu" class="cta-button">Fale Conosco (Discord)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h2>O MULTIVERSO ESTÁ CHAMANDO. SUA CONSTRUÇÃO É A PRÓXIMA.</h2>
+                <p>Modelos e Skins 3D Premium, prontos para uso com Blockbuster Mod. Marvel, DC e muito mais!</p>
+                <button class="hero-cta" onclick="document.getElementById('contact').scrollIntoView()">FALE COM O PARKER AGORA!</button>
+            </div>
+            <div class="web-effect"></div>
+        </section>
+
+        <section id="featured" class="model-gallery">
+            <h1>Packs de Alto Detalhe em Destaque</h1>
+            <div class="gallery-container">
+                <div class="model-card spiderman-theme" data-model="spidey">
+                    <img src="https://media.discordapp.net/attachments/1307726045214019716/1419201008738893875/image-21.png?ex=68fbbe2f&is=68fa6caf&hm=4d193d3705c716050be5748df6c12a08b32d36725640093b63c87e519bae7b1a&=&format=webp&quality=lossless" alt="Modelo 3D do Spider-Man">
+                    <h4>Spider-Man</h4>
+                    <p>Skin animada do Aranha com efeitos personalizados de lançador de teias.</p>
+                    <button class="details-btn">Ver Detalhes</button>
+                </div>
+                <div class="model-card dc-theme" data-model="batman">
+                    <img src="https://media.discordapp.net/attachments/1307727155722981428/1308220180152713227/image.png?ex=68fb6a3c&is=68fa18bc&hm=7acf55520111d192b4c3d9872ee45aac2df6a530d3072842e40b7bb1fa7f12ba&=&format=webp&quality=lossless" alt="Modelo 3D do Batman">
+                    <h4>O Batman</h4>
+                    <p>Modelo do Cavaleiro das Trevas com física de capa e acessórios de cinto de utilidades.</p>
+                    <button class="details-btn">Ver Detalhes</button>
+                </div>
+                <div class="model-card marvel-theme" data-model="ironman">
+                    <img src="https://media.discordapp.net/attachments/1307745171739377724/1307747832135942174/image.png?ex=68fbac93&is=68fa5b13&hm=48905a0d659f5e26c6dfabc9d5c6c7e8e614539bf4afd3933b0af8633031b43c&=&format=webp&quality=lossless" alt="Modelo 3D do Iron Man">
+                    <h4>Deadpool</h4>
+                    <p>Deadpool totalmente animado com Espadas e Armas.</p>
+                    <button class="details-btn">Ver Detalhes</button>
+                </div>
+                </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h1>Pronto para um Modelo Exclusivo?</h1>
+            <p class="contact-subtext">Não perca tempo com formulários! Clique no botão abaixo e fale diretamente com nossa equipe no Discord para discutir seu projeto e obter um orçamento rápido.</p>
+            <a href="https://discord.gg/AGCxjkfUbe" target="_blank" class="discord-cta-button">
+                <img src="https://static.vecteezy.com/system/resources/previews/023/986/880/non_2x/discord-logo-discord-logo-transparent-discord-icon-transparent-free-free-png.png" alt="Ícone do Discord" class="discord-icon">
+                ENTRE NO NOSSO DISCORD AGORA!
+            </a>
+            <p class="contact-note">Clique e vamos dar vida ao seu herói no Minecraft!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Parker Pack's. Todos os direitos reservados. | Os modelos requerem o Blockbuster Mod para funcionar.</p>
+        <div class="social-links">
+            <a href="https://discord.gg/AGCxjkfUbe" target="_blank">Discord</a> | 
+            <a href="https://x.com/Lawliet_198" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Usei uma função simples que garante que a tela some depois que o DOM carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splash-screen');
+            
+            // Tempo de espera (em milissegundos) antes do fade-out
+            const displayTime = 2000; // 2 segundos
+            
+            // Adiciona a classe 'fade-out' após o tempo de espera
+            setTimeout(() => {
+                splash.classList.add('fade-out');
+                
+                // Remove o elemento do DOM completamente após a transição (0.8s) terminar
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 800);
+            }, displayTime);
+        });
+    </script>
+    
+    </body>
+</html>
